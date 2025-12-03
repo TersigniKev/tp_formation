@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\MembresRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: MembresRepository::class)]
+class Membres
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id_membre = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $nom_membre = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $login_membre = null;
+
+    public function getIdMembre(): ?int
+    {
+        return $this->id_membre;
+    }
+
+    public function getNomMembre(): ?string
+    {
+        return $this->nom_membre;
+    }
+
+    public function setNomMembre(string $nom_membre): static
+    {
+        $this->nom_membre = $nom_membre;
+
+        return $this;
+    }
+
+    public function getLoginMembre(): ?string
+    {
+        return $this->login_membre;
+    }
+
+    public function setLoginMembre(string $login_membre): static
+    {
+        $this->login_membre = $login_membre;
+
+        return $this;
+    }
+}
