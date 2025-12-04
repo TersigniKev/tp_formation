@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un membre{% endblock %}
+
+{% block body %}
+    <h1 class="display-1 text-center mb-5 text-white">Modification</h1>
+
+    <div class="container-fluid w-50 border p-4 shadow-lg text-center text-white border-5 rounded-3 mb-3">
+        {{ include('membres/_form.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
+
+{% endblock %}

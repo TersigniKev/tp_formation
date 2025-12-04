@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MembresRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MembresRepository::class)]
 class Membres
@@ -14,6 +15,10 @@ class Membres
     private ?int $id_membre = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\Regex(
+        pattern: '/^[a-z]+$/i',
+        htmlPattern: '^[a-zA-Z]+$'
+    )]
     private ?string $nom_membre = null;
 
     #[ORM\Column(length: 100)]

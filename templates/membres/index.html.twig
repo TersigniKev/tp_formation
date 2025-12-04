@@ -1,30 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Membres index{% endblock %}
+{% block title %}Membres{% endblock %}
 
 {% block body %}
-    <h1>Membres index</h1>
-
-    <table class="table">
+    <h1 class="display-1 text-center text-white">Liste des membres</h1>
+<div class="container-fluid mb-3 w-75 "> 
+    <table class="table mt-5 shadow-lg table-dark table-striped-columns ">
         <thead>
-            <tr>
+            <tr class="text-center ">
                 <th>Id</th>
                 <th>nom</th>
                 <th>login</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         {% for membre in membres %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ membre.idMembre }}</td>
-                <td>{{ membre.nomMembre }}</td>
-                <td>{{ membre.loginMembre }}</td>
+                <td>{{ membre.nomMembre|upper }}</td>
+                <td>{{ membre.loginMembre|capitalize }}</td>
+                <td class="d-flex gap-3 justify-content-center">
+                    <a href="{{ path('app_membres_edit', {'id': membre.idMembre}) }}" class="btn btn-outline-light">Modifier</a>
+                    {{ include('membres/_delete_form.html.twig') }}
+                </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="text-center w-100"><a href="{{ path('app_membres_new') }}" class="btn btn-outline-light mt-2 mb-2">Creer un nouveau Membre</a></td>
+            </tr>
+        </tfoot>
     </table>
+</div>
 {% endblock %}

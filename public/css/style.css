@@ -1,0 +1,9 @@
+.form-group,
+.form-row,
+.form-control {
+    margin-bottom: 15px;
+}
+
+input{
+    margin-bottom:15px;
+}
