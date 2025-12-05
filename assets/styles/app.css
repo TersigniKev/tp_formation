@@ -1,3 +1,49 @@
+html {
+  height:100%;
+}
+
 body {
-    background-color: #2B2B2B;
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+.table {
+    opacity: 80% !important;
+}
+
+.table-shadow-boost {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 1) !important;
 }

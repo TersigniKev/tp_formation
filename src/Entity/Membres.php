@@ -15,13 +15,20 @@ class Membres
     private ?int $id_membre = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire')]
     #[Assert\Regex(
         pattern: '/^[a-z]+$/i',
-        htmlPattern: '^[a-zA-Z]+$'
+        htmlPattern: '^[a-zA-Z]+$',
+        message: 'Le nom doit contenir uniquement des lettres'
+    )]
+    #[Assert\Length(
+        min: 2,
+        minMessage: '2 caractères minimum',
     )]
     private ?string $nom_membre = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Le login est obligatoire')]
     private ?string $login_membre = null;
 
     public function getIdMembre(): ?int

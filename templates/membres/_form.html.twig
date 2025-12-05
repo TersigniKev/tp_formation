@@ -17,9 +17,8 @@
       </div>
     </div>
   </div>
-
   <div class="mt-3">
-    <button class="btn btn-outline-light">{{ button_label|default('Enregistrer') }}</button>
+    <button type="submit" class="btn btn-outline-light">{{ button_label|default('Enregistrer') }}</button>
     <a href="{{ path('app_membres') }}" class="btn btn-outline-light ms-2">Retour</a>
   </div>
 {{ form_end(form) }}
